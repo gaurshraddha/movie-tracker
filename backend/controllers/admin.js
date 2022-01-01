@@ -59,6 +59,7 @@ exports.postMovie = (req, res) => {
     const movie = new Movie({ name: name, description: description });
     movie.save();
     console.log('Movie Added to the database');
+    
     res.status(201).redirect('http://localhost:3000/');
 };
 
