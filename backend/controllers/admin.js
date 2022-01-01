@@ -6,7 +6,8 @@ exports.getIndex = async (req, res) => {
 
     try {
         console.log(movie);
-        res.status(200).render('index', { movie: movie });
+        // res.status(200).render('index', { movie: movie });
+        res.json(movie);
     } catch (err) {
         console.log(err);
     }
@@ -58,7 +59,7 @@ exports.postMovie = (req, res) => {
     const movie = new Movie({ name: name, description: description });
     movie.save();
     console.log('Movie Added to the database');
-    res.status(201).redirect('/');
+    res.status(201).redirect('http://localhost:3000/');
 };
 
 exports.postEditMovie = (req, res) => {
